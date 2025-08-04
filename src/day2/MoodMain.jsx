@@ -1,7 +1,8 @@
 import React, { useState ,useEffect} from 'react';
 import axios from 'axios';
 
-export default function MoodMain() {
+export default function MoodMain()
+{
   const [newarea, setNewarea] = useState(false);
   const [content, setContent] = useState("");
   const [input, setInput] = useState("");

@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import TimeTracker from './day3/TimeTracker'
+import NotesTaker from './day4/NotesTaker'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-     <TimeTracker/>
+     <NotesTaker/>
     </>
   )
 }
