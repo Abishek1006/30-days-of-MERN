@@ -1,15 +1,49 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 export default function Quizapp() {
+  const [catagories, setCatagories] = useState([]);
+
+  useEffect(() => {
+    const fetchCatagories = async () => {
+      try {
+        const res = await axios.get('http://localhost:8081/api/catagories');
+        setCatagories(res.data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchCatagories(); 
+  }, []);
+
+  const redirectToParticularCatagory = (id) => {
+    try {
+     
+      console.log('Redirect to category ID:', id);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div>
-        <div>
+      <div className="m-10 bg-cyan-300 w-auto">
+        <h1 className="font-bold p-3 text-2xl">Quiz App</h1>
+      </div>
 
-            <h1>Quiz App</h1>
-        </div>
-        <div>
-            
-        </div>
+      <div>
+        {catagories.map((quizcatagory) => (
+          <div key={quizcatagory.id}>
+            <p
+              onClick={() => redirectToParticularCatagory(quizcatagory.id)}
+              className="p-10 m-10 bg-white-500 text-cyan-600 cursor-pointer"
+            >
+              {quizcatagory.name}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
-  )
+  );
 }

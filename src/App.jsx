@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import NotesTaker from './day4/NotesTaker'
+import Quizapp from './day5/Quizapp'
 import './App.css'
 
 function App() {
 
   return (
     <>
-     <NotesTaker/>
+     <Quizapp/>
     </>
   )
 }
