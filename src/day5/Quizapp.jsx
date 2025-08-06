@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Quizapp() {
   const [catagories, setCatagories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCatagories = async () => {
@@ -13,17 +15,11 @@ export default function Quizapp() {
         console.error(e);
       }
     };
-
     fetchCatagories(); 
   }, []);
 
   const redirectToParticularCatagory = (id) => {
-    try {
-     
-      console.log('Redirect to category ID:', id);
-    } catch (e) {
-      console.error(e);
-    }
+    navigate(`/category/${id}`);
   };
 
   return (
