@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Quizapp from './day5/Quizapp';
-import Qppage from './day5/Qppage';
+import TicTacToe from './day6/TicTakToe'
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Quizapp />} />
-        <Route path="/category/:id" element={<Qppage />} />
+        <Route path="/" element={<TicTacToe />} />
+        
       </Routes>
     </Router>
   );
